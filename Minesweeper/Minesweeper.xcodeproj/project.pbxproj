@@ -60,17 +60,41 @@
 		8506A778203B3BE3004A539B /* Minesweeper */ = {
 			isa = PBXGroup;
 			children = (
-				8506A779203B3BE3004A539B /* AppDelegate.swift */,
-				8506A77B203B3BE3004A539B /* GameScene.sks */,
 				8506A77D203B3BE3004A539B /* Actions.sks */,
-				8506A77F203B3BE3004A539B /* GameScene.swift */,
-				8506A781203B3BE3004A539B /* GameViewController.swift */,
-				8506A783203B3BE3004A539B /* Main.storyboard */,
+				8506A779203B3BE3004A539B /* AppDelegate.swift */,
 				8506A786203B3BE3004A539B /* Assets.xcassets */,
-				8506A788203B3BE3004A539B /* LaunchScreen.storyboard */,
+				8506A791203B3E4B004A539B /* Entities */,
+				8506A77B203B3BE3004A539B /* GameScene.sks */,
 				8506A78B203B3BE3004A539B /* Info.plist */,
+				8506A792203B3E55004A539B /* Interactors */,
+				8506A793203B3E6D004A539B /* Views */,
 			);
 			path = Minesweeper;
+			sourceTree = "<group>";
+		};
+		8506A791203B3E4B004A539B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8506A792203B3E55004A539B /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				8506A77F203B3BE3004A539B /* GameScene.swift */,
+				8506A781203B3BE3004A539B /* GameViewController.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		8506A793203B3E6D004A539B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8506A788203B3BE3004A539B /* LaunchScreen.storyboard */,
+				8506A783203B3BE3004A539B /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
