@@ -1,5 +1,5 @@
 //
-//  RandomExtension.swift
+//  Random.swift
 //  Minesweeper
 //
 //  Created by Dorian Grolaux on 19/02/2018.
@@ -19,13 +19,13 @@ class Random {
         return self.float() * (max - min) + min
     }
     
-    /// Returns a random Int
+    /// Returns a random Int (BOGUS - don't use)
     static func int() -> Int {
         return Int(self.float())
     }
     
     /// Returns a random Int between a minima and maxima
     static func int(min: Int, max: Int) -> Int {
-        return Int(self.int() * (max - min) + min)
+        return min + Int(arc4random_uniform(UInt32(max) - UInt32(min) + 1))
     }
 }
