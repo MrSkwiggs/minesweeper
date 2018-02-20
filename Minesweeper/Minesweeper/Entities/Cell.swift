@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Cell {
-    var revealed: Bool = false
-    var flagged: Bool = false
+struct Cell {
     
-    let containsBomb: Bool!
+    var state: CellState = .hidden
+    
+    let containsBomb: Bool
     let neighbouringBombs: Int?
     
     init(containsBomb: Bool) {
