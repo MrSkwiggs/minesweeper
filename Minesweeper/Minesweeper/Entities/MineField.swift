@@ -27,9 +27,8 @@ class MineField {
                 yCells.append(Cell(containsBomb: randomPlacements.contains(where: { placement -> Bool in
                     return placement == (x: x, y: y)
                 })))
-                
-                cells.append(yCells)
             }
+            cells.append(yCells)
         }
         
         self.cells = cells
