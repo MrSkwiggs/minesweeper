@@ -15,7 +15,9 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        let minefield = MineField(gridSize: 10, withBombAmount: 20)
+        let minefield = MineField(gridSize: 20, withBombAmount: 20)
+        
+        print(minefield)
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
