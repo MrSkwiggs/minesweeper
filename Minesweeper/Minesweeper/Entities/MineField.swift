@@ -80,6 +80,8 @@ class MineField {
     
     
     private static func getPlacementOptions(count: Int, forArraySize size: Int) -> [Coordinates] {
+        let count = count > (size * size) ? size * size : count
+        
         var allPlacementsArray = getPlacementOptions(forArraySize: size)
         var limitedPlacementsArray = [Coordinates]()
         
