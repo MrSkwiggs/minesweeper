@@ -12,7 +12,7 @@ struct Cell {
     var state: CellState = .hidden
     
     let containsBomb: Bool
-    let neighbouringBombs: Int?
+    var neighbouringBombs: Int?
     
     init(containsBomb: Bool) {
         self.containsBomb = containsBomb
