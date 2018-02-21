@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Coordinates = (x: Int, y: Int)
+
 class MineField {
     private let cells: [[Cell]]!
     
@@ -31,12 +33,42 @@ class MineField {
             cells.append(yCells)
         }
         
+        MineField.markPlacedBombs(inField: &cells, placedBombs: randomPlacements)
+        
         self.cells = cells
     }
     
+    private static func getImmediateNeighbours(ofCellAt cellCoords: Coordinates, inField field: [[Cell]]) -> [Coordinates] {
+        var neighbouringCellsCoords = [Coordinates]()
+        
+        for xDelta in -1...1 {
+            if let _ = field[safe: xDelta + cellCoords.x] {
+                let x = xDelta + cellCoords.x
+                
+                for yDelta in -1...1 {
+                    if let cell = field[x][safe: yDelta + cellCoords.y], !cell.containsBomb {
+                        neighbouringCellsCoords.append((x: x, y: yDelta + cellCoords.y))
+                    }
+                }
+            }
+        }
+        
+        return neighbouringCellsCoords
+    }
     
-    private static func getPlacementOptions(forArraySize size: Int) -> [(x: Int, y: Int)] {
-        var options = [(x: Int, y: Int)]()
+    private static func markPlacedBombs(inField field: inout [[Cell]], placedBombs: [Coordinates]) {
+        for placedBomb in placedBombs {
+            let immediateNeighboursCoords = MineField.getImmediateNeighbours(ofCellAt: placedBomb, inField: field)
+            for neighbourCoords in immediateNeighboursCoords {
+                
+                // we can force unwrap here, cells without a bomb
+                field[neighbourCoords.x][neighbourCoords.y].neighbouringBombs! += 1
+            }
+        }
+    }
+    
+    private static func getPlacementOptions(forArraySize size: Int) -> [Coordinates] {
+        var options = [Coordinates]()
         for x in 0..<size {
             for y in 0..<size {
                 options.append((x: x, y: y))
@@ -47,16 +79,36 @@ class MineField {
     }
     
     
-    private static func getPlacementOptions(count: Int, forArraySize size: Int) -> [(x: Int, y: Int)] {
+    private static func getPlacementOptions(count: Int, forArraySize size: Int) -> [Coordinates] {
         var allPlacementsArray = getPlacementOptions(forArraySize: size)
-        var limitedPlacementsArray = [(x: Int, y: Int)]()
+        var limitedPlacementsArray = [Coordinates]()
         
         for _ in 0..<count {
-            let randIndex = Random.int(min: 0, max: allPlacementsArray.count)
+            let randIndex = Random.int(min: 0, max: allPlacementsArray.count - 1)
             
             limitedPlacementsArray.append(allPlacementsArray.remove(at: randIndex))
         }
         
         return limitedPlacementsArray
     }
+}
+
+extension MineField: CustomDebugStringConvertible {
+    var debugDescription: String {
+        var string = ""
+        for xCellArray in self.cells {
+            for cell in xCellArray {
+                if cell.containsBomb {
+                    string += " X  "
+                } else {
+                    string += " \(cell.neighbouringBombs!)  "
+                }
+            }
+            string += "\n\n"
+        }
+        
+        return string
+    }
+    
+    
 }
