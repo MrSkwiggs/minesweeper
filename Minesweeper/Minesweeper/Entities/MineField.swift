@@ -26,9 +26,9 @@ class MineField {
      - parameter size: The length of each side of the field measured in amount of cells. (Total number of cells is amount squared).
      - parameter bombs: The amount of bombs to randomly place around in the Minefield.
      **/
-    init(gridSize size: Int, withBombAmount bombs: Int) {
+    init(squareSideLength size: Int, withBombAmount bombs: Int) {
         
-        let randomPlacements = MineField.getRandomMinesPlacements(amount: bombs, forMinefieldTotalCellAmount: size)
+        let randomPlacements = MineField.getRandomMinesPlacements(mineAmount: bombs, forMinefieldTotalCellAmount: size * size)
         var cells = [[Cell]]()
         
         for x in 0..<size {

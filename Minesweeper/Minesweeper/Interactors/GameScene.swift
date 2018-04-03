@@ -15,7 +15,7 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        let minefield = MineField(gridSize: 10, withBombAmount: 20)
+        let minefield = MineField(squareSideLength: 10, withBombAmount: 20)
         
         print(minefield)
         
