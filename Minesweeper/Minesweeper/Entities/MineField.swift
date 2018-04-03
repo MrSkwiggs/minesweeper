@@ -12,17 +12,6 @@ typealias Coordinates = (x: Int, y: Int)
 class MineField {
     private let cells: [[Cell]]
     
-    
-    subscript(x: Int, y: Int) -> Cell? {
-        guard let firstRow = cells.first, firstRow.first != nil else { return nil }
-        
-        let totalRows = cells.count
-        let totalColumns = firstRow.count
-        
-        guard x < totalColumns && y < totalRows else { return nil }
-        return cells[y][x]
-    }
-    
     /**
      Initialise the Minefield with an already filled field (use for saved games for instance).
      - parameter cells: The cell 2d array.
@@ -39,7 +28,7 @@ class MineField {
      **/
     init(gridSize size: Int, withBombAmount bombs: Int) {
         
-        let randomPlacements = MineField.getPlacementOptions(count: bombs, forArraySize: size)
+        let randomPlacements = MineField.getRandomMinesPlacements(amount: bombs, forMinefieldTotalCellAmount: size)
         var cells = [[Cell]]()
         
         for x in 0..<size {
@@ -106,7 +95,7 @@ class MineField {
      - parameter size: The size of the Minefield.
      - returns: An Array containing all the coordinates in that Minefield.
      **/
-    private static func getPlacementOptions(forArraySize size: Int) -> [Coordinates] {
+    private static func getPlacementOptions(foMinefieldTotalCellAmount size: Int) -> [Coordinates] {
         var options = [Coordinates]()
         for x in 0..<size {
             for y in 0..<size {
@@ -124,13 +113,14 @@ class MineField {
      - parameter size: The size of the Minefield.
      - returns: An Array containing the requested amount of randomized unique coordinates.
      **/
-    private static func getPlacementOptions(count: Int, forArraySize size: Int) -> [Coordinates] {
-        let count = count > (size * size) ? size * size : count
+    private static func getRandomMinesPlacements(mineAmount: Int, forMinefieldTotalCellAmount minefieldCellAmount: Int) -> [Coordinates] {
+        // High limit on the number of mines to place
+        let finalAmount = mineAmount > minefieldCellAmount ? minefieldCellAmount : mineAmount
         
-        var allPlacementsArray = getPlacementOptions(forArraySize: size)
+        var allPlacementsArray = getPlacementOptions(foMinefieldTotalCellAmount: minefieldCellAmount)
         var limitedPlacementsArray = [Coordinates]()
         
-        for _ in 0..<count {
+        for _ in 0..<finalAmount {
             let randIndex = Random.int(min: 0, max: allPlacementsArray.count - 1)
             
             limitedPlacementsArray.append(allPlacementsArray.remove(at: randIndex))
@@ -161,6 +151,19 @@ extension MineField: CustomDebugStringConvertible {
         
         return string
     }
-    
-    
+}
+
+extension MineField {
+    /**
+     Easy access to the MineField's cell by referencing a 2d coordinate.
+    */
+    subscript(x: Int, y: Int) -> Cell? {
+        guard let firstRow = cells.first, firstRow.first != nil else { return nil }
+
+        let totalRows = cells.count
+        let totalColumns = firstRow.count
+
+        guard x < totalColumns && y < totalRows else { return nil }
+        return cells[y][x]
+    }
 }
