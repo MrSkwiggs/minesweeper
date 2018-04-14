@@ -10,21 +10,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Chest Sweep... Arr!-->
         <scene sceneID="12I-by-c4f">
             <objects>
-                <viewController id="2aB-hE-zwb" sceneMemberID="viewController">
+                <viewController title="Chest Sweep... Arr!" id="2aB-hE-zwb" customClass="MainMenuViewController" customModule="Minesweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wh9-kw-9BK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-fe-Ohu">
+                                <rect key="frame" x="172" y="144" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="play:" destination="2aB-hE-zwb" eventType="touchUpInside" id="bA8-KF-Z0h"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sa1-Hr-drJ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TBD-ny-cFW"/>
+                    <navigationItem key="navigationItem" title="Chest Sweep... Arr!" id="TBD-ny-cFW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRc-f7-vGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.2" y="161.46926536731635"/>
+            <point key="canvasLocation" x="1033" y="161"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q4T-zC-MEE">
