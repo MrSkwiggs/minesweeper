@@ -15,6 +15,12 @@
 		8506A785203B3BE3004A539B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8506A783203B3BE3004A539B /* Main.storyboard */; };
 		8506A787203B3BE3004A539B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8506A786203B3BE3004A539B /* Assets.xcassets */; };
 		8506A78A203B3BE3004A539B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8506A788203B3BE3004A539B /* LaunchScreen.storyboard */; };
+		8506A795203B3F69004A539B /* MineField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506A794203B3F69004A539B /* MineField.swift */; };
+		8506A797203B3F91004A539B /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506A796203B3F91004A539B /* Cell.swift */; };
+		8506A799203B7BA5004A539B /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506A798203B7BA5004A539B /* Random.swift */; };
+		8506A79B203CCDD2004A539B /* CellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506A79A203CCDD2004A539B /* CellState.swift */; };
+		8506A79D203D745E004A539B /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506A79C203D745E004A539B /* CollectionExtension.swift */; };
+		8528E3B020740FB500A1CBB8 /* MinePlacementInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528E3AF20740FB500A1CBB8 /* MinePlacementInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		8506A786203B3BE3004A539B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8506A789203B3BE3004A539B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8506A78B203B3BE3004A539B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8506A794203B3F69004A539B /* MineField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineField.swift; sourceTree = "<group>"; };
+		8506A796203B3F91004A539B /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		8506A798203B7BA5004A539B /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		8506A79A203CCDD2004A539B /* CellState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellState.swift; sourceTree = "<group>"; };
+		8506A79C203D745E004A539B /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
+		8528E3AF20740FB500A1CBB8 /* MinePlacementInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinePlacementInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +87,10 @@
 		8506A791203B3E4B004A539B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				8506A796203B3F91004A539B /* Cell.swift */,
+				8506A79A203CCDD2004A539B /* CellState.swift */,
+				8506A794203B3F69004A539B /* MineField.swift */,
+				8506A79C203D745E004A539B /* CollectionExtension.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -84,6 +100,8 @@
 			children = (
 				8506A77F203B3BE3004A539B /* GameScene.swift */,
 				8506A781203B3BE3004A539B /* GameViewController.swift */,
+				8506A798203B7BA5004A539B /* Random.swift */,
+				8528E3AF20740FB500A1CBB8 /* MinePlacementInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -170,7 +188,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8506A799203B7BA5004A539B /* Random.swift in Sources */,
+				8506A79B203CCDD2004A539B /* CellState.swift in Sources */,
+				8528E3B020740FB500A1CBB8 /* MinePlacementInteractor.swift in Sources */,
+				8506A795203B3F69004A539B /* MineField.swift in Sources */,
 				8506A780203B3BE3004A539B /* GameScene.swift in Sources */,
+				8506A797203B3F91004A539B /* Cell.swift in Sources */,
+				8506A79D203D745E004A539B /* CollectionExtension.swift in Sources */,
 				8506A782203B3BE3004A539B /* GameViewController.swift in Sources */,
 				8506A77A203B3BE3004A539B /* AppDelegate.swift in Sources */,
 			);
